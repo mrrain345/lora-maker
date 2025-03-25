@@ -1,7 +1,7 @@
 services:
   lora-maker:
     build:
-      context: .
+      context: code
       target: dev
       args:
         - NODE_VERSION=node:22-alpine
@@ -10,9 +10,9 @@ services:
     develop:
       watch:
         - action: sync
-          path: .
+          path: code
           target: /app
           ignore:
             - node_modules
         - action: rebuild
-          path: package.json
+          path: code/package.json
